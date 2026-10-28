@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: marketplace-v3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: marketplace-v3
+  template:
+    metadata:
+      labels:
+        app: marketplace-v3
+    spec:
+      containers:
+        - name: marketplace
+          image: mithra1707/marketplace:v3
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
